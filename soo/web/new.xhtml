@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>BibSys</title>
+        <meta name="author" content="The Author"></meta>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body>
+        
+        <b:navBar brand="BibSys" brandHref="#" inverse="true" fixed="top">
+            <b:navbarLinks pull="center">
+                <b:dropMenu value="Actions">
+                    <b:navLink value="New" href="#"></b:navLink>
+                    <b:navLink value="See diferences" href="#"></b:navLink>
+                    <b:navLink value="Join" href="#"></b:navLink>
+                    <b:navLink value="Search" href="#"></b:navLink>
+                    <b:navLink value="View" href="#"></b:navLink>
+                    <b:navLink value="Format" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+
+            <h:form styleClass="navbar-form navbar-right">
+                <b:commandButton class="actionButton" action="new" value="New" look="success"/>
+                <b:commandButton  class="actionButton" action="view" value="View" look="info" icon="chevron-right" iconAlign="right"/>
+            </h:form>
+        </b:navBar>
+
+        <b:container>
+            <h1 style="margin: 80px;" class="title">See diferences / Join</h1>
+            <div>
+                <b:form id="newBib">
+                    <b:inputText id="author" fieldId="j_username" name="author"
+                                 value="#{loginBean.username}"
+                                 label="Author" />
+                    <b:message for="@previous" />
+                    <b:inputText id="title" fieldId="j_title" name="title"
+                                 value="#{loginBean.title}"
+                                 label="Title" />
+                    <b:message for="@previous" />
+                    <b:inputText id="journal" fieldId="j_journal" name="journal"
+                                 value="#{loginBean.journal}"
+                                 label="Journal" />
+                    <b:message for="@previous" />
+                    <b:inputText id="year" fieldId="j_year" name="year"
+                                 value="#{loginBean.year}"
+                                 label="Year" />
+                    <b:message for="@previous" />
+                    <b:inputText id="volume" fieldId="j_volume" name="volume"
+                                 value="#{loginBean.volume}"
+                                 label="Volume" />
+                    <b:message for="@previous" />
+                    <b:inputText id="number" fieldId="j_number" name="number"
+                                 value="#{loginBean.number}"
+                                 label="Number" />
+                    <b:message for="@previous" />
+                    <b:inputText id="pages" fieldId="j_pages" name="pages"
+                                 value="#{loginBean.pages}"
+                                 label="Pages" />
+                    <b:message for="@previous" />
+                    <b:commandButton update="@form" value="Create" look="sucess"/>
+                    <b:commandButton value="Cancel" look="danger"/>
+                </b:form>
+            </div>
+        </b:container>
+
+        <b:container>
+            <hr/>
+            <footer>
+            <p>© PTSoftwares Soo - Unesp - 2017</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+</ui:composition>

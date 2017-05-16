@@ -1,0 +1,25 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:define name="header">
+        <b:navBar brand="BibSys" brandHref="#" inverse="true" fixed="top">
+            <b:navbarLinks pull="center">
+                <b:dropMenu value="Actions">
+                    <b:navLink value="New" href="#"></b:navLink>
+                    <b:navLink value="See diferences" href="#"></b:navLink>
+                    <b:navLink value="Join" href="#"></b:navLink>
+                    <b:navLink value="Search" href="#"></b:navLink>
+                    <b:navLink value="View" href="#"></b:navLink>
+                    <b:navLink value="Format" href="#"></b:navLink>
+                </b:dropMenu>
+            </b:navbarLinks>
+
+            <h:form styleClass="navbar-form navbar-right">
+                <b:commandButton class="actionButton" action="new" value="New" look="success"/>
+                <b:commandButton  class="actionButton" action="view" value="View" look="info" icon="chevron-right" iconAlign="right"/>
+            </h:form>
+        </b:navBar>
+    </ui:define>
+</ui:composition>
