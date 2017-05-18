@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>BibSys</title>
+        <meta name="author" content="The Author"></meta>
+        <link rel="stylesheet" type="text/css" href="style.css"></link>
+    </h:head>
+    <!-- Add 50px padding top to the body for the navbar -->
+    <h:body>
+        
+        <ui:include src="header.xhtml"/>
+
+        <b:container>
+            <h1 style="margin: 80px;" class="title">See diferences / Join</h1>
+            <div>
+                <h:form>
+                    <b:commandButton action="choose" value="File #1" look="primary" iconAwesome="file-code-o" iconAlign="right"/>
+                    <b:commandButton action="choose" value="File #2" look="primary" iconAwesome="file-code-o" iconAlign="right"/>    
+                </h:form>
+            </div>
+        </b:container>
+
+        <b:container>
+            <hr/>
+            <footer>
+            <p>© PTSoftwares Soo - Unesp - 2017</p>
+            </footer>
+        </b:container>
+
+    </h:body>
+</ui:composition>
