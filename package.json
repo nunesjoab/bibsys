@@ -1,0 +1,19 @@
+{
+  "name": "sk3ltn",
+  "version": "1.0.0",
+  "private": true,
+  "description": "waioDev - sk3ltn",
+  "dependencies": {},
+  "devDependencies": {
+    "browser-sync": "^2.2.4",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-clean-css": "^2.0.12",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-rename": "^1.2.0",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-watch": "^4.3.9"
+  }
+}

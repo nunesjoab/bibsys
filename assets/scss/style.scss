@@ -1,0 +1,90 @@
+/*!
+@project		Projeto
+@author			waioDev - W2Z Solucoes em TI | http://waiodev.w2z.com.br
+@since			JUL 2015
+-----------------------------------------------------------------------------
+*/
+
+@import "theme";
+
+
+
+
+
+/*-----------------------------------*\
+	#HOME
+\*-----------------------------------*/
+
+#main {
+
+	.hero {
+		background-color: $grey-light;
+
+		.container {
+			padding-bottom: 40px;
+			padding-top: 40px;
+
+			h1 {
+				color: $black;
+				margin: 0 0 10px;
+				font-weight: $font-weight;
+				font-size: $font-size-h1;
+				letter-spacing: 1.5px;
+			}
+
+			p {
+				color: $black;
+				font-family: $font02;
+				font-size: 24px;
+				font-weight: $font-regular;
+				letter-spacing: .3px;
+			}
+
+			.input-group {
+				margin-top: 20px;
+				width: 100%;
+
+				.search-button {
+					background-color: $blue;
+					border-color: $border-blue;
+
+					&:hover {
+						background-color: lighten($blue, 10%);
+					}
+
+					i {
+						color: $white;
+					}
+				}
+			} //.input-group
+		} //.container
+	}
+
+	.wrapper-content {
+		margin: 40px 0 0;
+		
+		.card {
+			text-align: center;
+
+			.card-title {
+				color: $black;
+			}
+
+			.card-text {
+				color: $black;
+				font-family: $font02;
+				font-size: $font-size-h4;
+			}
+
+			.action-button {
+				background-color: $grey-lighter;
+				border: .5px solid $grey;
+
+				&:hover {
+					background-color: $grey;
+					text-transform: background-color .3s;
+				}
+			}
+		}
+	}
+}

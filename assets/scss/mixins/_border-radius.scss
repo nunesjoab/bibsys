@@ -1,0 +1,8 @@
+// BORDER RADIUS
+
+@mixin border-radius($tl: 0, $tr: 0, $br: 0, $bl: 0) {
+	border-top-right-radius: $tr;
+	border-top-left-radius: $tl;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+}

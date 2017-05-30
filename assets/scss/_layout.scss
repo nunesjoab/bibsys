@@ -1,0 +1,72 @@
+/*-----------------------------------*\
+	#LAYOUT
+\*-----------------------------------*/
+
+#main {
+	min-height: 650px;
+}
+
+
+
+
+
+/*-----------------------------------*\
+	#HEADER
+\*-----------------------------------*/
+
+.main-header {
+	background-color: $black;
+
+	.container {
+
+		.navbar {
+			border: 0;
+			margin-bottom: 0;
+			position: relative;
+			text-align: center;
+			width: 100%;
+			z-index: 1000;
+
+			.logo {
+				color: $white;
+				padding: 15px 0;
+				font-size: 25px;
+			}
+
+			button {
+				margin: 10px 0 10px 20px;
+			}
+
+			.header-options {
+				display: inline-block;
+			} //.header-options
+
+			.btn-header {
+				float: right;		
+			}
+		} // .navbar
+	} //.container
+
+} // .main-header
+
+
+
+
+
+/*-----------------------------------*\
+	#FOOTER
+\*-----------------------------------*/
+
+.main-footer {
+	background-color: $black;
+	color: $white;
+	font-family: $font02;
+	font-size: 14px;
+	margin: 0;
+	padding: 20px 0;
+
+	a {
+		color: $white;
+		float: right;
+	}
+} // footer[role=contentinfo]
