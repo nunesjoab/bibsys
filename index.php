@@ -1,11 +1,4 @@
 <?php
-/**
-* waioDev sk3LTn
- *
- */
-
-?>
-<?php
     require_once("header.php");
 ?>
 
@@ -21,19 +14,17 @@
     <div id="main">
         <div class="hero">
 
-            <div class="container">
-                <h1>I'm BibSys!</h1>
-                <p>The simpliest .bib files manager. The section bellow describes what I can do.</p>
-                <p>If you're already been here, use the search bar to find what you are looking for.</p>
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Type here..." aria-describedby="sizing-addon1">
-                    <a class="input-group-addon search-button" href="#"><i class="glyphicon glyphicon-search"></i></a>
-                </div>
-            </div><!-- .container -->
+            <h1 class="title">I'm BibSys!</h1>
+            <p>The simpliest .bib files manager. The section bellow describes what I can do.</p>
+            <p>If you're already been here, use the search bar to find what you are looking for.</p>
+            <div class="input-group input-group-lg">
+                <input type="text" class="form-control" placeholder="Type here..." aria-describedby="sizing-addon1">
+                <a class="input-group-addon search-button" href="#"><i class="glyphicon glyphicon-search"></i></a>
+            </div>
         </div><!-- .hero -->
-            
-        <div class="wrapper-content">
-            <div class="container">
+        
+        <div class="container">
+            <div class="wrapper-content">
                 <div class="col-md-4">
                     <div class="card">
                         <h2 class="card-title">Format</h2>
@@ -61,8 +52,8 @@
                         </button>
                     </div>
                 </div>
-            </div><!-- .container -->
-        </div><!-- .wrapper-content -->
+            </div><!-- .wrapper-content -->
+        </div><!-- .container -->
 
     </div><!-- #main -->
 

@@ -51,4 +51,8 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	$('.view-button').on('click', function(){
+		window.location.href = "view.php";
+	});
+
 });

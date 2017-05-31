@@ -42,6 +42,7 @@
 			} //.header-options
 
 			.btn-header {
+				margin: 10px 0 10px 20px;
 				float: right;		
 			}
 		} // .navbar
@@ -70,3 +71,12 @@
 		float: right;
 	}
 } // footer[role=contentinfo]
+
+
+h1 {
+	color: $black;
+	font-size: $font-size-h1;
+	font-weight: $font-weight;
+	letter-spacing: 1.5px;
+	margin: 0 0 10px;
+}

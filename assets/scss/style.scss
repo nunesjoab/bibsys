@@ -19,18 +19,7 @@
 
 	.hero {
 		background-color: $grey-light;
-
-		.container {
-			padding-bottom: 40px;
-			padding-top: 40px;
-
-			h1 {
-				color: $black;
-				margin: 0 0 10px;
-				font-weight: $font-weight;
-				font-size: $font-size-h1;
-				letter-spacing: 1.5px;
-			}
+		padding: 50px 110px;
 
 			p {
 				color: $black;
@@ -57,34 +46,65 @@
 					}
 				}
 			} //.input-group
-		} //.container
-	}
+	} //.hero
 
-	.wrapper-content {
-		margin: 40px 0 0;
-		
-		.card {
-			text-align: center;
+	.container {
 
-			.card-title {
-				color: $black;
-			}
+		.wrapper-content {
+			margin: 30px 0 0;
 
-			.card-text {
-				color: $black;
-				font-family: $font02;
-				font-size: $font-size-h4;
-			}
+			.card {
+				text-align: center;
 
-			.action-button {
-				background-color: $grey-lighter;
-				border: .5px solid $grey;
-
-				&:hover {
-					background-color: $grey;
-					text-transform: background-color .3s;
+				.card-title {
+					color: $black;
 				}
+
+				.card-text {
+					color: $black;
+					font-family: $font02;
+					font-size: $font-size-h4;
+				}
+
+				.action-button {
+					background-color: $grey-lighter;
+					border: .5px solid $grey;
+
+					&:hover {
+						background-color: $grey;
+						text-transform: background-color .3s;
+					}
+				}
+			} //.card
+		} //.wrapper-content
+	} //.container
+} //#main
+
+
+#view {
+	
+	.wrapper-content {
+		background-color: $grey;
+		padding: 50px;
+
+		.container {
+			background-color: $white;
+
+		
+
+			.bib-field {
+				display: inline-block;
+				font: $font-weight 24px / 1em $font01;
+				letter-spacing: .9px;
+				padding-left: 40px;
 			}
-		}
-	}
+
+			.bib-information {
+				font: $font-medium 20px / 1em $font02;
+				letter-spacing: 1px;
+				margin-left: 10px;
+				text-transform: uppercase;
+			}
+		} //.container
+	} //.wrapper-content
 }
