@@ -1,0 +1,10 @@
+// Default Buttons style
+
+@mixin bt-default() {
+	display: inline-block;
+
+	&:hover {
+		color: $link-color;
+		background-color: darken($grey, 20%);
+	}
+}

@@ -1,0 +1,110 @@
+/*!
+@project		Projeto
+@author			waioDev - W2Z Solucoes em TI | http://waiodev.w2z.com.br
+@since			JUL 2015
+-----------------------------------------------------------------------------
+*/
+
+@import "theme";
+
+
+
+
+
+/*-----------------------------------*\
+	#HOME
+\*-----------------------------------*/
+
+#main {
+
+	.hero {
+		background-color: $grey-light;
+		padding: 50px 110px;
+
+			p {
+				color: $black;
+				font-family: $font02;
+				font-size: 24px;
+				font-weight: $font-regular;
+				letter-spacing: .3px;
+			}
+
+			.input-group {
+				margin-top: 20px;
+				width: 100%;
+
+				.search-button {
+					background-color: $blue;
+					border-color: $border-blue;
+
+					&:hover {
+						background-color: lighten($blue, 10%);
+					}
+
+					i {
+						color: $white;
+					}
+				}
+			} //.input-group
+	} //.hero
+
+	.container {
+
+		.wrapper-content {
+			margin: 30px 0 0;
+
+			.card {
+				text-align: center;
+
+				.card-title {
+					color: $black;
+				}
+
+				.card-text {
+					color: $black;
+					font-family: $font02;
+					font-size: $font-size-h4;
+				}
+
+				.action-button {
+					background-color: $grey-lighter;
+					border: .5px solid $grey;
+
+					&:hover {
+						background-color: $grey;
+						text-transform: background-color .3s;
+					}
+				}
+			} //.card
+		} //.wrapper-content
+	} //.container
+} //#main
+
+
+#view {
+	
+	.wrapper-content {
+		background-color: $grey;
+		padding: 50px;
+
+		.container {
+			background-color: $white;
+
+		
+
+			.bib-field {
+				display: inline-block;
+				font: $font-weight 24px / 1em $font01;
+				letter-spacing: .9px;
+				padding-left: 40px;
+			}
+
+			.bib-information {
+				font: $font-medium 20px / 1em $font02;
+				letter-spacing: 1px;
+				margin-left: 10px;
+				text-transform: uppercase;
+			}
+		} //.container
+	} //.wrapper-content
+}

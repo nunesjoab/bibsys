@@ -1,0 +1,31 @@
+/*-----------------------------------*\
+	#BASE
+\*-----------------------------------*/
+
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: $font-family-base;
+	@include font-size(16, $line-height-base);
+	color: $text-color;
+	background-color: $bg-color;
+}
+
+
+// FONT FACE
+//@font-face {
+//	@include font-face("Font Name", normal, normal, file-name);
+//}
+
+
+// LINK STYLES
+a, a:visited {
+	@include link( $link-color, darken($link-color, 9%), none );
+}
+
+
+// BUTTON STYLES
+a.bt-default {
+	@include bt-default();
+}
