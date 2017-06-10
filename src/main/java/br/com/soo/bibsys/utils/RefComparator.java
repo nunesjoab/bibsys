@@ -1,30 +1,65 @@
 package br.com.soo.bibsys.utils;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RefComparator {
 
 
-	public Map<String, String> fileToMap(String file) {
-		Map<String, String> map = new HashMap<String, String>();
+	public List<Map<String, String>> fileToMap(String file) {
+		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
-		String[] split = file.split(",");
+		String[] refs = file.split("@");
 
-		for (int i = 1; i < split.length - 1; i++) {
-			String line = split[i];
+		for (int i = 0; i < refs.length; i++) {
+		    if (refs[i].trim().equals("")) {
+                continue;
+            }
 
-			String[] tags = line.split("=");
-			String key = tags[0].trim();
-			String value = tags[1].trim().replaceAll("[{},]", "");
+		    Map<String, String> map = new HashMap<String, String>();
+		    String[] lines = refs[i].split("\\n");
 
-			map.put(key, value);
-		}
 
-		return map;
+		    for (int j = 0; j < lines.length; j++) {
+                String line = lines[j];
+                line = line.replaceAll("[}]", "");
+
+                if (line.trim().equals("")) {
+                    continue;
+                }
+
+                if (j == 0) {
+                    String[] tags = line.split("[{]");
+                    String bibkey = tags[1];
+                    bibkey = bibkey.replaceAll(",", "");
+                    map.put("bibkey", bibkey);
+                } else {
+
+                    String[] tags = line.split("=");
+                    String key = tags[0].trim();
+                    String value = tags[1].trim().replaceAll("[{}]", "");
+                    value = value.substring(0, value.length() - 1);
+
+                    map.put(key, value);
+                }
+		    }
+    		list.add(map);
+        }
+
+
+		return list;
 	}
 
 	public boolean compareFiles(String file1, String file12) {
 		return false;
 	}
+
+	public List<String> getBibkeysFromFile(List<Map<String, String>> file) {
+        List<String> keys = new ArrayList<String>();
+
+        for (Map<String, String> ref : file) {
+            keys.add(ref.get("bibkey"));
+        }
+
+        return keys;
+    }
 }
