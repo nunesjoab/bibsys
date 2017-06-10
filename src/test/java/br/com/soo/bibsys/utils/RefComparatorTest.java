@@ -3,6 +3,7 @@ package br.com.soo.bibsys.utils;
 import org.junit.Test;
 
 import javax.print.DocFlavor;
+import java.sql.Ref;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,9 @@ public class RefComparatorTest {
 			"@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n  number        = {3},\n}";
 	private static final String FILE4 = FILE3 + "\n" + FILE3;
 
+	private static final String FILE5 = "@InBook{Cheng.etal:2009,\n}" + "@InProceedings{Affonso.etal:2015a,\n}" +
+            "@InProceedings{Affonso.etal:2016,\n}" + "@Article{Affonso.etal:2015,\n}" + "@Misc{Bergen:2007,\n}";
+
 	@Test
 	public void fileToMapWithOneTagTest() {
 		RefComparator comparator = new RefComparator();
@@ -25,7 +29,7 @@ public class RefComparatorTest {
 		assertEquals(1, list.size());
 		assertEquals(2, list.get(0).size());
         assertEquals("bibkey", list.get(0).keySet().toArray()[0]);
-        assertEquals("Carnielli:1999", list.get(0).get(list.get(0).keySet().toArray()[0]));
+        assertEquals("carnielli:1999", list.get(0).get(list.get(0).keySet().toArray()[0]));
 		assertEquals("author", list.get(0).keySet().toArray()[1]);
 		assertEquals("W.A. Carnielli and J. Marcos", list.get(0).get(list.get(0).keySet().toArray()[1]));
 	}
@@ -63,4 +67,34 @@ public class RefComparatorTest {
 
 		boolean filesAreEqual = comparator.compareFiles(FILE1, FILE1);
 	}
+
+	@Test
+    public void orderBibkeysTest() {
+	    RefComparator comparator = new RefComparator();
+
+	    List<Map<String, String>> refs = comparator.fileToMap(FILE5);
+	    List<String> bibkeys = comparator.getBibkeysFromFile(refs);
+
+	    bibkeys = comparator.orderBibkeys(bibkeys);
+
+	    assertEquals("affonso.etal:2015", bibkeys.get(0));
+	    assertEquals("affonso.etal:2015a", bibkeys.get(1));
+        assertEquals("affonso.etal:2016", bibkeys.get(2));
+        assertEquals("bergen:2007", bibkeys.get(3));
+        assertEquals("cheng.etal:2009", bibkeys.get(4));
+    }
+
+    @Test
+    public void orderFileTest() {
+        RefComparator comparator = new RefComparator();
+
+        List<Map<String, String>> refs = comparator.fileToMap(FILE5);
+        refs = comparator.orderFile(refs);
+
+        assertEquals("affonso.etal:2015", refs.get(0).get("bibkey"));
+        assertEquals("affonso.etal:2015a", refs.get(1).get("bibkey"));
+        assertEquals("affonso.etal:2016", refs.get(2).get("bibkey"));
+        assertEquals("bergen:2007", refs.get(3).get("bibkey"));
+        assertEquals("cheng.etal:2009", refs.get(4).get("bibkey"));
+    }
 }

@@ -15,7 +15,7 @@ public class Parser {
 			tagKey = tagKey.substring(0, 13);
 		}
 
-		return String.format("  %-13s", tagKey.trim());
+		return String.format("  %-13s", tagKey.trim()).toLowerCase();
 	}
 
 	public String prepareTagValue(String tagValue) {
