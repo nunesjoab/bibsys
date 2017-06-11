@@ -20,6 +20,13 @@ public class RefComparatorTest {
 	private static final String FILE5 = "@InBook{Cheng.etal:2009,\n}" + "@InProceedings{Affonso.etal:2015a,\n}" +
             "@InProceedings{Affonso.etal:2016,\n}" + "@Article{Affonso.etal:2015,\n}" + "@Misc{Bergen:2007,\n}";
 
+	private static final String FILE6 = "@ARTICLE{affonso.etal:2015,\n" +
+            "title={A Reference Model as Automated Process for Software Adaptation at Runtime},\n" +
+            "author={Affonso, F. J. and Carneiro, M. C. V. S. and Rodrigues, E. L. L. and Nakagawa, E. Y.},\n}\n\n" +
+            "@INPROCEEDINGS{affonso.etal:2016,\n" +
+            "title={DmS-Modeler: A Tool for Modeling Decision-making Systems for Self-adaptive Software Domain},\n" +
+            "author={Affonso, F. J. and Leite, G. and Nakagawa, E. Y.},\n}\n\n";
+
 	@Test
 	public void fileToMapWithOneTagTest() {
 		RefComparator comparator = new RefComparator();
@@ -28,12 +35,12 @@ public class RefComparatorTest {
 
 		assertEquals(1, list.size());
 		assertEquals(3, list.get(0).size());
-        assertEquals("bibkey", list.get(0).keySet().toArray()[0]);
-        assertEquals("carnielli:1999", list.get(0).get(list.get(0).keySet().toArray()[0]));
-		assertEquals("author", list.get(0).keySet().toArray()[1]);
-		assertEquals("W.A. Carnielli and J. Marcos", list.get(0).get(list.get(0).keySet().toArray()[1]));
-		assertEquals("type", list.get(0).keySet().toArray()[2]);
-		assertEquals("ARTICLE", list.get(0).get(list.get(0).keySet().toArray()[2]));
+		assertEquals("type", list.get(0).keySet().toArray()[0]);
+		assertEquals("ARTICLE", list.get(0).get(list.get(0).keySet().toArray()[0]));
+        assertEquals("bibkey", list.get(0).keySet().toArray()[1]);
+        assertEquals("carnielli:1999", list.get(0).get(list.get(0).keySet().toArray()[1]));
+		assertEquals("author", list.get(0).keySet().toArray()[2]);
+		assertEquals("W.A. Carnielli and J. Marcos", list.get(0).get(list.get(0).keySet().toArray()[2]));
 	}
 
 	@Test
@@ -98,5 +105,13 @@ public class RefComparatorTest {
         assertEquals("affonso.etal:2016", refs.get(2).get("bibkey"));
         assertEquals("bergen:2007", refs.get(3).get("bibkey"));
         assertEquals("cheng.etal:2009", refs.get(4).get("bibkey"));
+    }
+
+    @Test
+	public void mapToFileTest() {
+	    RefComparator comparator = new RefComparator();
+
+	    List<Map<String, String>> refs = comparator.fileToMap(FILE6);
+	    assertEquals(FILE6, comparator.mapToFile(refs));
     }
 }

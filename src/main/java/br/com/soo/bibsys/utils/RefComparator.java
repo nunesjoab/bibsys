@@ -15,7 +15,7 @@ public class RefComparator {
                 continue;
             }
 
-		    Map<String, String> map = new HashMap<String, String>();
+		    Map<String, String> map = new LinkedHashMap<String, String>();
 		    String[] lines = refs[i].split("\\n");
 
 
@@ -33,8 +33,8 @@ public class RefComparator {
                     type = type.toUpperCase();
                     String bibkey = tags[1];
                     bibkey = bibkey.replaceAll(",", "").toLowerCase();
-                    map.put("bibkey", bibkey);
                     map.put("type", type);
+                    map.put("bibkey", bibkey);
                 } else {
 
                     String[] tags = line.split("=");
@@ -47,7 +47,6 @@ public class RefComparator {
 		    }
     		list.add(map);
         }
-
 
 		return list;
 	}
@@ -84,5 +83,25 @@ public class RefComparator {
         });
 
 	    return file;
+    }
+
+    public String mapToFile(List<Map<String, String>> refs) {
+	    String file = "";
+
+        for (Map<String, String> ref : refs) {
+            for (Map.Entry<String, String> entry : ref.entrySet()) {
+                if (entry.getKey().equals("type")) {
+                    file = file + "@" + entry.getValue() + "{";
+                } else if (entry.getKey().equals("bibkey")) {
+                    file = file + entry.getValue() + ",\n";
+                } else {
+                    file = file + entry.getKey() + "={" + entry.getValue() + "},\n";
+                }
+            }
+
+            file = file + "}\n\n";
+        }
+
+        return file;
     }
 }
