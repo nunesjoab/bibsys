@@ -27,11 +27,13 @@ public class RefComparatorTest {
 		List<Map<String, String>> list = comparator.fileToMap(FILE1);
 
 		assertEquals(1, list.size());
-		assertEquals(2, list.get(0).size());
+		assertEquals(3, list.get(0).size());
         assertEquals("bibkey", list.get(0).keySet().toArray()[0]);
         assertEquals("carnielli:1999", list.get(0).get(list.get(0).keySet().toArray()[0]));
 		assertEquals("author", list.get(0).keySet().toArray()[1]);
 		assertEquals("W.A. Carnielli and J. Marcos", list.get(0).get(list.get(0).keySet().toArray()[1]));
+		assertEquals("type", list.get(0).keySet().toArray()[2]);
+		assertEquals("ARTICLE", list.get(0).get(list.get(0).keySet().toArray()[2]));
 	}
 
 	@Test
@@ -41,7 +43,7 @@ public class RefComparatorTest {
 		List<Map<String, String>> list = comparator.fileToMap(FILE2);
 
 		assertEquals(1, list.size());
-		assertEquals(3, list.get(0).size());
+		assertEquals(4, list.get(0).size());
 	}
 
 	@Test

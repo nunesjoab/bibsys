@@ -29,9 +29,12 @@ public class RefComparator {
 
                 if (j == 0) {
                     String[] tags = line.split("[{]");
+                    String type = tags[0];
+                    type = type.toUpperCase();
                     String bibkey = tags[1];
                     bibkey = bibkey.replaceAll(",", "").toLowerCase();
                     map.put("bibkey", bibkey);
+                    map.put("type", type);
                 } else {
 
                     String[] tags = line.split("=");
