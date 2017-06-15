@@ -10,6 +10,12 @@ public class FileOperator {
 
     private static final String FILE_ENCODING = "UTF-8";
 
+    /**
+     * Converte arquivo para uma String
+     *
+     * @param file arquivo a ser convertido
+     * @return arquivo convertido em String
+     */
     public static String convertFileToString(File file) {
         String fileString = "";
 
@@ -22,6 +28,13 @@ public class FileOperator {
         return fileString;
     }
 
+    /**
+     * Converte um arquivo .bib, armazenando cada referência em um mapa
+     * com chave/valor e armazenando cada mapa em uma lista
+     *
+     * @param file arquivo .bib
+     * @return lista de mapa com as referências do arquivo
+     */
     public List<Map<String, String>> fileToMap(String file) {
         List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 
@@ -34,7 +47,6 @@ public class FileOperator {
 
             Map<String, String> map = new LinkedHashMap<String, String>();
             String[] lines = refs[i].split("\\n");
-
 
             for (int j = 0; j < lines.length; j++) {
                 String line = lines[j];
@@ -68,6 +80,12 @@ public class FileOperator {
         return list;
     }
 
+    /**
+     * Converte uma lista de mapa com as referências para uma String
+     *
+     * @param refs lista de mapa com as referências
+     * @return String com as referências formatadas em conforme arquivo .bib
+     */
     public String mapToFile(List<Map<String, String>> refs) {
         String file = "";
 
@@ -88,12 +106,27 @@ public class FileOperator {
         return file;
     }
 
+    /**
+     * Concatena dois arquivos
+     *
+     * @param fileA arquivo A
+     * @param fileB arquivo B
+     * @return arquivo concatenado
+     */
     public String joinFiles(String fileA, String fileB) {
         String joinedFile;
         joinedFile = fileA.concat("\n" + fileB);
         return joinedFile;
     }
 
+    /**
+     * Verifica as diferenças entre duas listas de mapas de referências
+     * e retorna uma terceira lista contendo-as.
+     *
+     * @param fileA lista de mapa da referências do arquivo A
+     * @param fileB lista de mapa da referências do arquivo B
+     * @return lista de mapa de diferenças entre os arquivos
+     */
     public List<Map<String, String>> getDiffBetweenFiles(List<Map<String, String>> fileA, List<Map<String, String>> fileB) {
         List<Map<String, String>> diff = new ArrayList<Map<String, String>>();
 
@@ -116,6 +149,12 @@ public class FileOperator {
         return diff;
     }
 
+    /**
+     * Ordena uma lista de mapa de referências com base nas bibkeys, alfabeticamente
+     *
+     * @param file lista de mapa de referências
+     * @return lista de mapa de referências ordenada a partir das bibkeys
+     */
     public List<Map<String, String>> orderFile(List<Map<String, String>> file) {
         file.sort(new Comparator<Map<String, String>>() {
             public int compare(Map<String, String> o1, Map<String, String> o2) {

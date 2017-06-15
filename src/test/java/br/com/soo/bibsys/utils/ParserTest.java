@@ -15,6 +15,12 @@ public class ParserTest {
 	private static final String FILE = "@ARTICLE{Carnielli:1999,\nauthor = {W.A. Carnielli and J. Marcos},\n}";
 	private static final String FILE_PARSED = "@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n}";
 
+	private static final String FILE2 = "@ARTICLE{Carnielli:1999,\nauthor={W.A. Carnielli and J. Marcos},\n}\n"+
+			"@ARTICLE{Carnielli:1999,\nauthor={W.A. Carnielli and J. Marcos},\nnumber={3},\n}";
+
+	private static final String FILE2_PARSED = "@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n}\n"+
+			"@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n  number        = {3},\n}";
+
 
 	@Test
 	public void parserHeaderTest() {
@@ -70,6 +76,7 @@ public class ParserTest {
 		Parser parser = new Parser();
 
 		assertEquals(FILE_PARSED, parser.parseFile(FILE));
+		assertEquals(FILE2_PARSED, parser.parseFile(FILE2));
 	}
 
 }
