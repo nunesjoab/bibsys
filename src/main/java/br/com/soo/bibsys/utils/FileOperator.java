@@ -16,7 +16,7 @@ public class FileOperator {
      * @param file arquivo a ser convertido
      * @return arquivo convertido em String
      */
-    public static String convertFileToString(File file) {
+    public String convertFileToString(File file) {
         String fileString = "";
 
         try {
@@ -41,6 +41,8 @@ public class FileOperator {
         String[] refs = file.split("@");
 
         for (int i = 0; i < refs.length; i++) {
+            refs[i] = refs[i].replace("\n\t", " ");
+
             if (refs[i].trim().equals("")) {
                 continue;
             }
@@ -68,7 +70,7 @@ public class FileOperator {
 
                     String[] tags = line.split("=");
                     String key = tags[0].trim();
-                    String value = tags[1].trim().replaceAll("[{}]", "");
+                    String value = tags[1].trim().replaceAll("[\"{}]", "");
                     value = value.substring(0, value.length() - 1);
 
                     map.put(key, value);

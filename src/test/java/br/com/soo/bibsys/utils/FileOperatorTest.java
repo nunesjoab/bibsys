@@ -107,7 +107,8 @@ public class FileOperatorTest {
     @Test
     public void convertFileToStringTest() {
         File file = new File(FILE_PATH);
-        assertEquals(FILE, FileOperator.convertFileToString(file));
+        FileOperator fileOperator = new FileOperator();
+        assertEquals(FILE, fileOperator.convertFileToString(file));
     }
 
     @Test

@@ -21,7 +21,7 @@ public class Parser {
 	 * @return array de Strings com chave e valor divididos
 	 */
 	public String[] splitTags(String tagLine) {
-		return tagLine.split("=");
+		return tagLine.split("=", 2);
 	}
 
 	/**
@@ -33,11 +33,11 @@ public class Parser {
 	 * @return chave da tag formatada
 	 */
 	public String prepareTagKey(String tagKey) {
-		if (tagKey.length() > 13) {
-			tagKey = tagKey.substring(0, 13);
+		if (tagKey.trim().length() > 13) {
+			tagKey = tagKey.trim().substring(0, 13);
 		}
 
-		return String.format("  %-13s", tagKey.trim()).toLowerCase();
+		return String.format("  %-13s", tagKey.trim());
 	}
 
 	/**
@@ -48,7 +48,12 @@ public class Parser {
 	 * @return valor da tag formatado
 	 */
 	public String prepareTagValue(String tagValue) {
-		tagValue = tagValue.replaceAll("[\"{},]", "");
+		tagValue = tagValue.replaceAll("[\"{}]", "");
+
+		if (tagValue.charAt(tagValue.length() - 1) == ',') {
+			tagValue = tagValue.substring(0, tagValue.length() - 1);
+		}
+
 		tagValue = String.format("{%s}", tagValue.trim());
 		return tagValue;
 	}
@@ -89,26 +94,30 @@ public class Parser {
 		String parsedFile = "";
 		String[] refs = file.split("@");
 
-		for (int i = 0; i < refs.length; i++) {
+		for (int i = 1; i < refs.length; i++) {
 			if (refs[i].trim().equals("")) {
 				continue;
 			}
 
-			String[] lines = refs[i].split("\n");
+			refs[i] = refs[i].replace("\n\t", " ");
+			refs[i] = refs[i].replace("},}", "},\n}");
+			refs[i] = refs[i].replace("}, ", "},\n");
+			refs[i] = refs[i].replace("\n\n", "\n");
+
+			String[] lines = refs[i].split("\\n");
 
 			lines[0] = "@" + parseHeader(lines[0]);
 
 			for (int j = 1; j < lines.length - 1; j++) {
-				lines[j] = parseTagLine(lines[j]);
+				if (!(lines[j].trim().equals("") || lines[j].trim().equals("}"))) {
+					lines[j] = parseTagLine(lines[j]);
+				} else {
+					lines[j] = parseTrail(lines[j]);
+				}
 			}
 
-			lines[lines.length - 1] = parseTrail(lines[lines.length - 1]);
+			parsedFile = parsedFile + String.join("\n", lines) + "\n";
 
-			if (parsedFile.trim().equals("")) {
-				parsedFile = String.join("\n", lines);
-			} else {
-				parsedFile = parsedFile + "\n" + String.join("\n", lines);
-			}
 		}
 
 		return parsedFile;

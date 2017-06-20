@@ -10,16 +10,16 @@ public class ParserTest {
 	private static final String HEADER_LINE_PARSED = "@ARTICLE{Carnielli:1999,";
 
 	private static final String TAG_LINE = "  Author = {W.A. Carnielli and J. Marcos},";
-	private static final String TAG_LINE_PARSED = "  author        = {W.A. Carnielli and J. Marcos},";
+	private static final String TAG_LINE_PARSED = "  Author        = {W.A. Carnielli and J. Marcos},";
 
 	private static final String FILE = "@ARTICLE{Carnielli:1999,\nauthor = {W.A. Carnielli and J. Marcos},\n}";
-	private static final String FILE_PARSED = "@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n}";
+	private static final String FILE_PARSED = "@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n}\n";
 
 	private static final String FILE2 = "@ARTICLE{Carnielli:1999,\nauthor={W.A. Carnielli and J. Marcos},\n}\n"+
 			"@ARTICLE{Carnielli:1999,\nauthor={W.A. Carnielli and J. Marcos},\nnumber={3},\n}";
 
 	private static final String FILE2_PARSED = "@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n}\n"+
-			"@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n  number        = {3},\n}";
+			"@ARTICLE{Carnielli:1999,\n  author        = {W.A. Carnielli and J. Marcos},\n  number        = {3},\n}\n";
 
 
 	@Test
@@ -40,7 +40,7 @@ public class ParserTest {
 	public void parserPrepareTagKeyTest() {
 		Parser parser = new Parser();
 
-		assertEquals("  teste        ", parser.prepareTagKey("Teste"));
+		assertEquals("  teste        ", parser.prepareTagKey("teste"));
 		assertEquals("  teste        ", parser.prepareTagKey("  teste  "));
 		assertEquals("  testecommaisd", parser.prepareTagKey("testecommaisde16caracteres"));
 	}

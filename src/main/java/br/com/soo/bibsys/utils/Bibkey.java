@@ -41,18 +41,27 @@ public class Bibkey {
         String[] names = splitAuthors(authors);
         String[] name;
 
+        int indexLastName = 1;
+
+        for (int i = 0; i < names.length; i++) {
+            if (names[i].contains(",")) {
+                indexLastName = 0;
+                break;
+            }
+        }
+
         if (names.length == 1) {
             name = splitAuthorName(names[0]);
-            formattedBibkey += name[0].toLowerCase();
+            formattedBibkey += name[indexLastName].toLowerCase();
         } else if (names.length == 2) {
             name = splitAuthorName(names[0]);
-            formattedBibkey += name[0].toLowerCase() + ".";
+            formattedBibkey += name[indexLastName].toLowerCase() + ".";
 
             name = splitAuthorName(names[1]);
-            formattedBibkey += name[0].toLowerCase();
+            formattedBibkey += name[indexLastName].toLowerCase();
         } else {
             name = splitAuthorName(names[0]);
-            formattedBibkey += name[0].toLowerCase() + ".etal";
+            formattedBibkey += name[indexLastName].toLowerCase() + ".etal";
         }
 
         formattedBibkey += ":" + year;
