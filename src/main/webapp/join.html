@@ -55,69 +55,44 @@ crossorigin="anonymous"></script>
         </div><!-- .container -->
     </header><!-- .main-header clearfix -->
 
-    <div id="main">
-        <div class="hero">
 
-            <div class="container">
-                <h1>I'm BibSys!</h1>
-                <p>The simpliest .bib files manager. The section bellow describes what I can do.</p>
-                <p>If you're already been here, use the search bar to find what you are looking for.</p>
-                <div class="input-group input-group-lg">
-                    <input type="text" class="form-control" placeholder="Type here..." aria-describedby="sizing-addon1">
-                    <a class="input-group-addon search-button" href="view.html"><i class="glyphicon glyphicon-search"></i></a>
-                </div>
-            </div><!-- .container -->
-        </div><!-- .hero -->
+    <div class="join" role="main">
+
+        <div class="formated-wrapper-content">
             
-        <div class="wrapper-content">
             <div class="container">
-                <div class="col-md-4">
-                    <div class="card">
-                        <h2 class="card-title">Format</h2>
-                        <p>Open a file .bib and apply patterns to format his content.</p>
-                        <button class=" btn bt-default action-button">View details 
-                            <i class="fa fa-angle-double-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h2 class="card-title">Compare</h2>
-                        <p>Open two files and see their differences with highlight lines.</p>
-                        <button class=" btn bt-default action-button">View details 
-                            <i class="fa fa-angle-double-right"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card">
-                        <h2 class="card-title">Join</h2>
-                        <p>Open two .bib and join to append their informations, field by field.</p>
-                        <button class=" btn bt-default action-button">View details 
-                            <i class="fa fa-angle-double-right"></i>
-                        </button>
-                    </div>
-                </div>
+                <h1 class="title">Join .bib files</h1>
+                
+                <label for='selecao-arquivo'>Choose file 1</label>
+                <input id='selecao-arquivo' type='file'>
+                <span class="file-name"></span>
+                
+                <label for='selecao-arquivo'>Choose file 2</label>
+                <input id='selecao-arquivo' type='file'>
+                <span class="file-name"></span>
+
+                <button class="btn btn-default btn-primary btn-action">Join <i class="fa fa-code-fork" aria-hidden="true"></i></button>
+            
             </div><!-- .container -->
         </div><!-- .wrapper-content -->
 
-    </div><!-- #main -->
+    </div><!-- .join -->
 
-    <footer class="main-footer">
+<footer class="main-footer">
 
-        <div class="inner-footer">
-            <div class="container">
-                
-                <div class="copyright" itemscope itemtype="http://schema.org/CreativeWork">
-                    © <span itemprop="copyrightYear">2017</span> - <span itemprop="copyrightHolder">BibSys</span> - Todos os direitos reservados
-                    <a itemprop="author" href="#" title="Desenvolvido por Guilherme, Joab e Webster" rel="author" >Desenvolvido por Guilherme, Joab e Webster</a>
-                </div><!--.copyright-->
-                
-            </div><!-- .container -->
+    <div class="inner-footer">
+        <div class="container">
+            
+            <div class="copyright" itemscope itemtype="http://schema.org/CreativeWork">
+                © <span itemprop="copyrightYear">2017</span> - <span itemprop="copyrightHolder">BibSys</span> - Todos os direitos reservados
+                <a itemprop="author" href="#" title="Desenvolvido por Guilherme, Joab e Webster" rel="author" >Desenvolvido por Guilherme, Joab e Webster</a>
+            </div><!--.copyright-->
+            
+        </div><!-- .container -->
 
 
-        </div><!-- .inner-footer -->
-    </footer> <!--footer -->
+    </div><!-- .inner-footer -->
+</footer> <!--footer -->
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

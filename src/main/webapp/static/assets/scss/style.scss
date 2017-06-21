@@ -81,30 +81,94 @@
 } //#main
 
 
-#view {
-	
-	.wrapper-content {
-		background-color: $grey;
-		padding: 50px;
+.formated-wrapper-content {
+	background-color: $grey;
+	padding: 50px;
 
-		.container {
-			background-color: $white;
+	.container {
+		background-color: $white;
 
-		
+		.bib-field {
+			display: inline-block;
+			font: $font-weight 24px / 1em $font01;
+			letter-spacing: .9px;
+			padding-left: 40px;
+		}
 
-			.bib-field {
-				display: inline-block;
-				font: $font-weight 24px / 1em $font01;
-				letter-spacing: .9px;
-				padding-left: 40px;
-			}
+		.bib-information {
+			font: $font-medium 20px / 1em $font02;
+			letter-spacing: 1px;
+			margin-left: 10px;
+			text-transform: uppercase;
+		}
+	} //.container
+} //.formated-wrapper-content
 
-			.bib-information {
-				font: $font-medium 20px / 1em $font02;
-				letter-spacing: 1px;
-				margin-left: 10px;
-				text-transform: uppercase;
-			}
-		} //.container
-	} //.wrapper-content
+.btn-action {
+	font-size: 20px;
+	width: 140px;
+	height: 60px;
 }
+
+.join {
+
+	/* Esconde o input */
+	input[type='file'] {
+		margin-left: 35px;
+		margin-bottom: 40px;
+	  //display: none
+	}
+
+	/* Aparência que terá o seletor de arquivo */
+	label {
+	  background-color: #3498db;
+	  border-radius: 5px;
+	  color: #fff;
+	  margin: 35px;
+	  padding: 6px 35px
+	}
+
+	.btn-action {
+		margin: 25px 35px;
+
+		.fa {
+			margin-left: 5px;
+			transform: rotateX(180deg);
+			font-size: 18px;
+		}
+	}
+} //.join
+
+.differences {
+
+	.bkg-difference {
+		background-color: $grey-light;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		
+		.bib-field {
+			font-size: 20px;
+		}
+
+		.bib-information {
+			font-size: 18px;
+		}
+
+		.diff-added {
+			background-color: $added;
+		}
+
+		.diff-removed {
+			background-color: $removed;
+		}
+	}
+} //.differences
+
+.new {
+
+	.input-group {
+		margin: 25px 15px;
+	}
+} //.new
+
+

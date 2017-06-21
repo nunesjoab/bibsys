@@ -11,7 +11,7 @@
         ?>
     </header><!-- .main-header -->
 
-    <div id="view" role="main">
+    <div class="view" role="main">
 
         <div class="wrapper-content">
             
@@ -42,6 +42,6 @@
             </div><!-- .container -->
         </div><!-- .wrapper-content -->
 
-    </div><!-- #main -->
+    </div><!-- .view -->
 
 <?php require_once("footer.php"); ?>
