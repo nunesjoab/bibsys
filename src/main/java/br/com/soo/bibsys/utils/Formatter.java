@@ -1,6 +1,6 @@
 package br.com.soo.bibsys.utils;
 
-public class Parser {
+public class Formatter {
 
 	/**
 	 * Retorna a primeira linha do bloco de referência formatada
@@ -8,8 +8,9 @@ public class Parser {
 	 * @param line primeira linha do arquivo .bib
 	 * @return primeira linha do arquivo .bib formatada
 	 */
-	public String parseHeader(String line) {
-		return line;
+	public String formatHeader(String line) {
+		String[] info = line.split("\\{");
+		return String.format("%s{%s", info[0].trim().toUpperCase(), info[1]);
 	}
 
 	/**
@@ -65,7 +66,7 @@ public class Parser {
 	 * @param tagLine linha de tag/valor
 	 * @return linha de tag/valor formatada
 	 */
-	public String parseTagLine(String tagLine) {
+	public String formatTagLine(String tagLine) {
 		String[] strings = splitTags(tagLine);
 
 		String key = prepareTagKey(strings[0]);
@@ -80,7 +81,7 @@ public class Parser {
 	 * @param trailLine última linha da referência
 	 * @return última linha da referência formatada
 	 */
-	public String parseTrail(String trailLine) {
+	public String formatTrail(String trailLine) {
 		return trailLine.trim();
 	}
 
@@ -90,7 +91,7 @@ public class Parser {
 	 * @param file arquivo .bib
 	 * @return arquivo .bib formatado
 	 */
-	public String parseFile(String file) {
+	public String formatFile(String file) {
 		String parsedFile = "";
 		String[] refs = file.split("@");
 
@@ -106,13 +107,13 @@ public class Parser {
 
 			String[] lines = refs[i].split("\\n");
 
-			lines[0] = "@" + parseHeader(lines[0]);
+			lines[0] = "@" + formatHeader(lines[0]);
 
 			for (int j = 1; j < lines.length - 1; j++) {
 				if (!(lines[j].trim().equals("") || lines[j].trim().equals("}"))) {
-					lines[j] = parseTagLine(lines[j]);
+					lines[j] = formatTagLine(lines[j]);
 				} else {
-					lines[j] = parseTrail(lines[j]);
+					lines[j] = formatTrail(lines[j]);
 				}
 			}
 

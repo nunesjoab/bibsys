@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class ParserTest {
+public class FormatterTest {
 
 	private static final String HEADER_LINE = "@ARTICLE{Carnielli:1999,";
 	private static final String HEADER_LINE_PARSED = "@ARTICLE{Carnielli:1999,";
@@ -24,59 +24,59 @@ public class ParserTest {
 
 	@Test
 	public void parserHeaderTest() {
-		Parser parser = new Parser();
-		assertEquals(HEADER_LINE_PARSED, parser.parseHeader(HEADER_LINE_PARSED));
+		Formatter formatter = new Formatter();
+		assertEquals(HEADER_LINE_PARSED, formatter.formatHeader(HEADER_LINE_PARSED));
 	}
 
 	@Test
 	public void parserSplitTagLineTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		String s[] = parser.splitTags(TAG_LINE);
+		String s[] = formatter.splitTags(TAG_LINE);
 		assertEquals(2, s.length);
 	}
 
 	@Test
 	public void parserPrepareTagKeyTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		assertEquals("  teste        ", parser.prepareTagKey("teste"));
-		assertEquals("  teste        ", parser.prepareTagKey("  teste  "));
-		assertEquals("  testecommaisd", parser.prepareTagKey("testecommaisde16caracteres"));
+		assertEquals("  teste        ", formatter.prepareTagKey("teste"));
+		assertEquals("  teste        ", formatter.prepareTagKey("  teste  "));
+		assertEquals("  testecommaisd", formatter.prepareTagKey("testecommaisde16caracteres"));
 	}
 
 	@Test
 	public void parserPrepareTagValueTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		assertEquals("{abc123}", parser.prepareTagValue("\"abc123\""));
-		assertEquals("{abc123}", parser.prepareTagValue("{abc123}"));
-		assertEquals("{abc123}", parser.prepareTagValue(" {abc123}"));
-		assertEquals("{abc123}", parser.prepareTagValue(" {abc123},"));
-		assertEquals("{abc123}", parser.prepareTagValue(" { abc123  },"));
+		assertEquals("{abc123}", formatter.prepareTagValue("\"abc123\""));
+		assertEquals("{abc123}", formatter.prepareTagValue("{abc123}"));
+		assertEquals("{abc123}", formatter.prepareTagValue(" {abc123}"));
+		assertEquals("{abc123}", formatter.prepareTagValue(" {abc123},"));
+		assertEquals("{abc123}", formatter.prepareTagValue(" { abc123  },"));
 	}
 
 	@Test
 	public void parserTagLineTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		assertEquals(TAG_LINE_PARSED, parser.parseTagLine(TAG_LINE));
+		assertEquals(TAG_LINE_PARSED, formatter.formatTagLine(TAG_LINE));
 	}
 
 	@Test
 	public void parserTrailLineTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		assertEquals("}", parser.parseTrail("}"));
-		assertEquals("}", parser.parseTrail(" } "));
+		assertEquals("}", formatter.formatTrail("}"));
+		assertEquals("}", formatter.formatTrail(" } "));
 	}
 
 	@Test
 	public void parserFileTest() {
-		Parser parser = new Parser();
+		Formatter formatter = new Formatter();
 
-		assertEquals(FILE_PARSED, parser.parseFile(FILE));
-		assertEquals(FILE2_PARSED, parser.parseFile(FILE2));
+		assertEquals(FILE_PARSED, formatter.formatFile(FILE));
+		assertEquals(FILE2_PARSED, formatter.formatFile(FILE2));
 	}
 
 }
