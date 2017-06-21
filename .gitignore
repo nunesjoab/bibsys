@@ -50,5 +50,5 @@ node_modules
 target
 
 # IntelliJ Files
-/.idea
+.idea
 *.iml
