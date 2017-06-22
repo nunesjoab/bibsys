@@ -57,7 +57,7 @@ crossorigin="anonymous"></script>
     </header><!-- .main-header clearfix -->
 
 
-    <div class="view" role="main">
+    <div class="join" role="main">
 
         <div class="formated-wrapper-content">
             
@@ -66,15 +66,9 @@ crossorigin="anonymous"></script>
             
                 <form action="">
 
-                    <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/format">
-
-                        <label for='selecao-arquivo'>Choose file</label>
-                        <input id='selecao-arquivo' name='file' type='file'>
-                        <span class="file-name"></span>
-
-                        <button type="submit" class="btn btn-default btn-primary btn-action">Upload <i class="fa fa-file-text" aria-hidden="true"></i></button>
-                    
-                    </form>
+                    <label for='selecao-arquivo'>Choose file</label>
+                    <input id='selecao-arquivo' name='file' type='file'>
+                    <span class="file-name"></span>
                 
                     <button type="submit" class="btn btn-default btn-primary btn-action generate-bibkey">Generate Bibkey <i class="fa fa-barcode" aria-hidden="true"></i></button>            
                     
