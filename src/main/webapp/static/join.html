@@ -40,8 +40,6 @@ crossorigin="anonymous"></script>
                     <ul class="dropdown-menu" aria-labelldby="header-options-button">
                         <li><a href="differences.html">See Diferences</a></li>
                         <li><a href="join.html">Join</a></li>
-                        <li><a href="index.html">Search</a></li>
-                        <li><a href="edit.html">Edit</a></li>
                         <li><a href="format.html">Format</a></li>
                         <li><a href="new-bibkey.html">Generate Bibkey</a></li>
                         <li><a href="order-file.html">Order</a></li>
@@ -62,15 +60,13 @@ crossorigin="anonymous"></script>
         <div class="formated-wrapper-content">
             
             <div class="container">
-                <h1 class="title">Join .bib files</h1>
+                <h1 class="title" style="margin-bottom:40px;">Join .bib files</h1>
 
                 <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/join">
                     
-                    <label for='selecao-arquivo-1'>Choose file 1</label>
                     <input id='selecao-arquivo-1' name='file1' type='file'>
                     <span class="file-name"></span>
                     
-                    <label for='selecao-arquivo-2'>Choose file 2</label>
                     <input id='selecao-arquivo-2' name='file2' type='file'>
                     <span class="file-name"></span>
 

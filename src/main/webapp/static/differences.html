@@ -40,8 +40,6 @@ crossorigin="anonymous"></script>
                     <ul class="dropdown-menu" aria-labelldby="header-options-button">
                         <li><a href="differences.html">See Diferences</a></li>
                         <li><a href="join.html">Join</a></li>
-                        <li><a href="index.html">Search</a></li>
-                        <li><a href="edit.html">Edit</a></li>
                         <li><a href="format.html">Format</a></li>
                         <li><a href="new-bibkey.html">Generate Bibkey</a></li>
                         <li><a href="order-file.html">Order</a></li>
@@ -62,65 +60,21 @@ crossorigin="anonymous"></script>
         <div class="formated-wrapper-content">
             
             <div class="container">
-                <h1 class="title">See .bib differences</h1>
+                <h1 class="title" style="margin-bottom:40px;">See .bib differences</h1>
 
                 <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/diff">
-                    <div class="join">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for='selecao-arquivo1'>Choose file 1</label>
-                                <input id='selecao-arquivo1' name='file1' type='file'>
-                                <span class="file-name"></span>
-                            </div>
-                            <div class="col-md-6">                            
-                                <label for='selecao-arquivo2'>Choose file 2</label>
-                                <input id='selecao-arquivo2' name='file2' type='file'>
-                                <span class="file-name"></span>
-                            </div>
-                        </div>
+
+                    <div style="margin:0 0 50px 30px;">
+                        <input id='selecao-arquivo1' name='file1' type='file'>
+                        <span class="file-name"></span>
+                    </div>
+                    <div style="margin:0 0 50px 30px;">
+                        <input id='selecao-arquivo2' name='file2' type='file'>
+                        <span class="file-name"></span>
                     </div>
 
-                    <button type="submit" class="btn btn-default btn-primary btn-action">See Differences</button>
+                    <button type="submit" class="btn btn-default btn-primary btn-action" style="width:180px;">See Differences</button>
                 </form>
-
-                <div class="row">
-                    <div class="col-md-8 col-md-offset-2">
-
-                        <div class="bkg-difference">                            
-                            <h3 class="bib-field bib-field-1"><span class="diff-removed">Bibkey:</span></h3>
-                            <span class="bib-information bib-information-1 diff-removed">Carnielli:1999</span><br>
-                            <h3 class="bib-field bib-field-1">Bibkey:</h3>
-                            <span class="bib-information bib-information-1">Carnielli:1999</span><br>
-                            
-                            <h3 class="bib-field bib-field-2">Author:</h3>
-                            <span class="bib-information bib-information-2">W.A. Carnielli and J. Marcos</span><br>
-                            
-                            
-                            <h3 class="bib-field bib-field-3"><span class="diff-removed">Journal:</span></h3>
-                            <span class="bib-information bib-information-3 diff-removed">Limits for paraconsistent calculi</span><br>
-                            <h3 class="bib-field bib-field-3"><span class="diff-added">Journal:</span></h3>
-                            <span class="bib-information bib-information-3 diff-added">Limits for paraconsistent calculi</span><br>
-                            
-                            <h3 class="bib-field bib-field-4">Year:</h3>
-                            <span class="bib-information bib-information-4">1999</span><br>
-                            
-                            <h3 class="bib-field bib-field-5">Volume:</h3>
-                            <span class="bib-information bib-information-5">40</span><br>
-                            
-                            <h3 class="bib-field bib-field-6"><span class="diff-added">Number:</span></h3>
-                            <span class="bib-information bib-information-6 diff-added">3</span><br>
-                            <h3 class="bib-field bib-field-6"><span class="diff-removed">Number:</span></h3>
-                            <span class="bib-information bib-information-6 diff-removed">3</span><br>
-                            
-                            <h3 class="bib-field bib-field-7"><span class="diff-removed">Pages:</span></h3>
-                            <span class="bib-information bib-information-7 diff-removed">375-390</span><br>
-                            <h3 class="bib-field bib-field-7">Pages:</h3>
-                            <span class="bib-information bib-information-7">375-390</span>
-                        </div>
-
-                    </div> <!-- .col-md-12 -->
-                </div> <!-- .row -->
-            
             </div><!-- .container -->
         </div><!-- .wrapper-content -->
 
