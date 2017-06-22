@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>BibSys</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+ integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Work+Sans:400,500,600" rel="stylesheet">
+
+<script src="https://use.fontawesome.com/2f3c03eda1.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" 
+crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <header class="main-header clearfix">
+        <div class="container">
+            <nav class="navbar" role="navbar">
+
+                <a class="logo navbar-brand" href="index.html" rel="nofollow">BibSys</a>
+        
+                <div class="header-options dropdown">
+                    <button class="btn btn-warning bt-default dropdown-toogle" type="button" id="header-options-button" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                        Options
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" aria-labelldby="header-options-button">
+                        <li><a href="new.html">New</a></li>
+                        <li><a href="differences.html">See Diferences</a></li>
+                        <li><a href="join.html">Join</a></li>
+                        <li><a href="index.html">Search</a></li>
+                        <li><a href="edit.html">Edit</a></li>
+                        <li><a href="format.html">Format</a></li>
+                        <li><a href="new-bibkey.html">New Bibkey</a></li>
+                        <li><a href="order-file.html">Order</a></li>
+                    </ul>
+                </div><!-- .dropdown -->
+
+                <button class="btn bt-default btn-info btn-header" onclick="window.location='edit.html';">Edit
+                    <i class="glyphicon glyphicon-chevron-right"></i>
+                </button>
+                <button class="btn bt-default btn-success btn-header" onclick="window.location='new.html';">New</button>
+            </nav><!-- .navbar -->            
+        </div><!-- .container -->
+    </header><!-- .main-header clearfix -->
+
+
+    <div class="order" role="main">
+
+        <div class="formated-wrapper-content">
+            
+            <div class="container">
+
+                <h1 class="title">Order .bib file</h1>
+                
+                <textarea name="" id="" cols="100" rows="16">
+                    @article{Weyns:2012:FUR:2168260.2168268,
+                        author = {Weyns, Danny and Malek, Sam and Andersson, Jesper},
+                        title = {FORMS: Unifying reference model for formal specification of distributed self-adaptive systems},
+                        journal = {ACM Trans. Auton. Adapt. Syst.},
+                        issue_date = {April 2012},
+                        volume = {7},
+                        number = {1},
+                        month = may,
+                        year = {2012},
+                        issn = {1556-4665},
+                        pages = {8:1--8:61},
+                        articleno = {8},
+                        numpages = {61},
+                        url = {http://doi.acm.org/10.1145/2168260.2168268},
+                        doi = {10.1145/2168260.2168268},
+                        acmid = {2168268},
+                        publisher = {ACM},
+                        address = {New York, NY, USA},
+                        keywords = {Formal methods, autonomic computing, self-adaptation},
+                        base = {acm},
+                     
+                    @inproceedings{Solomon:2007:TRR:1270237.1270323,
+                        author = {Solomon, Bogdan and Ionescu, Dan and Litoiu, Marin and Mihaescu, Mircea},
+                        title = {Towards a Real-Time Reference Architecture for Autonomic Systems},
+                        booktitle = {Proceedings of the 2007 International Workshop on Software Engineering for Adaptive and Self-Managing Systems},
+                        series = {SEAMS '07},
+                        year = {2007},
+                        isbn = {0-7695-2973-9},
+                        pages = {10--},
+                        url = {http://dx.doi.org/10.1109/SEAMS.2007.20},
+                        doi = {10.1109/SEAMS.2007.20},
+                        acmid = {1270323},
+                        publisher = {IEEE Computer Society},
+                        address = {Washington, DC, USA},
+                        base = {acm},
+                   }
+                   @incollection {springerlink:10.1007/3-540-68383-6_23,
+                        author = {Balzer, Robert},
+                        affiliation = {Information Sciences Institute 4676 Admiralty Way Marina del Rey CA 90292},
+                        title = {An Architectural Infrastructure for Product Families},
+                        booktitle = {Development and Evolution of Software Architectures for Product Families},
+                        series = {Lecture Notes in Computer Science},
+                        editor = {van der Linden, Frank},
+                        publisher = {Springer Berlin / Heidelberg},
+                        isbn = {978-3-540-64916-8},
+                        keyword = {Computer Science},
+                        pages = {158-160},
+                        volume = {1429},
+                        url = {http://dx.doi.org/10.1007/3-540-68383-6_23},
+                        note = {10.1007/3-540-68383-6_23},
+                        year = {1998}
+                    }
+
+                    @CONFERENCE{Bhattacharya2012351,
+                        author={Bhattacharya, A.},
+                        title={Mobile agent based elastic executor service: Reference architecture of an executor service using a mobile agent platform to control thhe elasticity of the system},
+                        journal={JCSSE 2012 - 9th International Joint Conference on Computer Science and Software Engineering},
+                        year={2012},
+                        pages={351-356},
+                        art_number={6261978},
+                        note={cited By (since 1996) 0},
+                        url={http://www.scopus.com/inward/record.url?eid=2-s2.0-84866376647&partnerID=40&md5=90a0d39a08d09987e9b547906444da99},
+                        document_type={Conference Paper},
+                        source={Scopus},
+                    }
+
+                    @Conference{Costagliola2006103,
+                        author  = {Costagliola, G. and Ferrucci, F. and Fuccella, V.},
+                        title   = {SCORM run-time environment as a service},
+                        year    = {2006},
+                        pages   = {103-110},
+                        note    = {cited By (since 1996) 5},
+                        journal = {ICWE'06: The Sixth International Conference on Web Engineering},
+                        source  = {Scopus},
+                        url     = {http://www.scopus.com/inward/record.url?eid=2-s2.0-34250688743&partnerID=40&md5=b539c539ef88eb07a29e110fa091b761},
+                    }
+                </textarea>
+                    
+                <button class="btn btn-default btn-primary btn-action">Join <i class="fa fa-code-fork join-icon" aria-hidden="true"></i></button>
+            
+            </div><!-- .container -->
+        </div><!-- .wrapper-content -->
+
+    </div><!-- .view -->
+
+<footer class="main-footer">
+
+    <div class="inner-footer">
+
+        <div class="container">
+            
+            <div class="copyright" itemscope itemtype="http://schema.org/CreativeWork">
+                © <span itemprop="copyrightYear">2017</span> - <span itemprop="copyrightHolder">BibSys</span> - Todos os direitos reservados
+                <a itemprop="author" href="#" title="Desenvolvido por Guilherme, Joab e Webster" rel="author" >Desenvolvido por Guilherme, Joab e Webster</a>
+            </div><!--.copyright-->
+        
+        </div><!-- .container -->
+
+    </div><!-- .inner-footer -->
+
+</footer> <!--footer -->
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<script>
+WebFont.load({
+ google: {
+  families: ['Open Sans:400,400i,700,800']
+ }
+});
+</script>
+</body>
+</html>
