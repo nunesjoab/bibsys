@@ -16,6 +16,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 @Path("/bib")
 public class BibService {
@@ -57,6 +59,31 @@ public class BibService {
 		return Response.ok(new StreamingOutput() {
 			public void write(OutputStream outputStream) throws IOException, WebApplicationException {
 				outputStream.write(file.getBytes());
+			}
+		}).header("Content-Disposition", contentDisposition).build();
+	}
+
+	@POST
+	@Path("/order")
+	@Consumes(MediaType.MULTIPART_FORM_DATA)
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response order(@FormDataParam("file") InputStream uploadedInputStream,
+			@FormDataParam("file") FormDataContentDisposition fileDetail) throws IOException {
+
+		String file = new Formatter().formatFile(IOUtils.toString(uploadedInputStream, Charset.defaultCharset()));
+
+		FileOperator fileOperator = new FileOperator();
+
+		List<Map<String, String>> maps = fileOperator.fileToMap(file);
+		maps = fileOperator.orderFile(maps);
+
+		final String output = fileOperator.mapToFile(maps);
+
+		ContentDisposition contentDisposition = ContentDisposition.type("attachment").fileName("file.bib").creationDate(new Date()).build();
+
+		return Response.ok(new StreamingOutput() {
+			public void write(OutputStream outputStream) throws IOException, WebApplicationException {
+				outputStream.write(output.getBytes());
 			}
 		}).header("Content-Disposition", contentDisposition).build();
 	}
