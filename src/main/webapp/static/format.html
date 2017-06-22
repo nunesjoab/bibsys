@@ -46,11 +46,7 @@ crossorigin="anonymous"></script>
                     </ul>
                 </div><!-- .dropdown -->
 
-                <button class="btn bt-default btn-info btn-header" onclick="window.location='edit.html';">Edit
-                    <i class="glyphicon glyphicon-chevron-right"></i>
-                </button>
-                <button class="btn bt-default btn-success btn-header" onclick="window.location='order-file.html';">Order</button>
-            </nav><!-- .navbar -->            
+            </nav><!-- .navbar -->
         </div><!-- .container -->
     </header><!-- .main-header clearfix -->
 
@@ -59,11 +55,10 @@ crossorigin="anonymous"></script>
         <div class="formated-wrapper-content">
             
             <div class="container">
-                <h1 class="title">Format .bib file</h1>
+                <h1 class="title" style="margin-bottom:40px;">Format .bib file</h1>
 
                 <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/format">
 
-                    <label for='selecao-arquivo'>Choose file</label>
                     <input id='selecao-arquivo' name='file' type='file'>
                     <span class="file-name"></span>
 

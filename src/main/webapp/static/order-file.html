@@ -46,11 +46,7 @@ crossorigin="anonymous"></script>
                     </ul>
                 </div><!-- .dropdown -->
 
-                <button class="btn bt-default btn-info btn-header" onclick="window.location='edit.html';">Edit
-                    <i class="glyphicon glyphicon-chevron-right"></i>
-                </button>
-                <button class="btn bt-default btn-success btn-header" onclick="window.location='order-file.html';">Order</button>
-            </nav><!-- .navbar -->            
+            </nav><!-- .navbar -->
         </div><!-- .container -->
     </header><!-- .main-header clearfix -->
 
@@ -61,15 +57,14 @@ crossorigin="anonymous"></script>
             
             <div class="container">
 
-                <h1 class="title">Order .bib file</h1>
+                <h1 class="title" style="margin-bottom:40px;">Order .bib file</h1>
                 
                 <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/order">
                     
-                    <label for='selecao-arquivo'>Choose file to order</label>
-                    <input id='selecao-arquivo' name='file' type='file'>
+                    <input id='selecao-arquivo' name='file' type='file' style="margin-left:30px;">
                     <span class="file-name"></span>
                     
-                    <button type="submit" class="btn btn-default btn-primary btn-action">Order <i class="fa fa-code-fork join-icon" aria-hidden="true"></i></button>
+                    <button type="submit" class="btn btn-default btn-primary btn-action" style="margin:40px 0 20px 30px;">Order</button>
                 
                 </form>
 
