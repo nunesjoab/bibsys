@@ -1,5 +1,6 @@
 package br.com.soo.bibsys.services;
 
+import br.com.soo.bibsys.utils.Bibkey;
 import br.com.soo.bibsys.utils.FileOperator;
 import br.com.soo.bibsys.utils.Formatter;
 import com.sun.jersey.core.header.ContentDisposition;
@@ -84,6 +85,57 @@ public class BibService {
 		return Response.ok(new StreamingOutput() {
 			public void write(OutputStream outputStream) throws IOException, WebApplicationException {
 				outputStream.write(output.getBytes());
+			}
+		}).header("Content-Disposition", contentDisposition).build();
+	}
+
+	@POST
+	@Path("/generateKey")
+	@Consumes(MediaType.MULTIPART_FORM_DATA)
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response generateKey(@FormDataParam("file") InputStream uploadedInputStream,
+			@FormDataParam("file") FormDataContentDisposition fileDetail) throws IOException {
+
+		String file = new Formatter().formatFile(IOUtils.toString(uploadedInputStream, Charset.defaultCharset()));
+
+		FileOperator fileOperator = new FileOperator();
+
+		List<Map<String, String>> maps = fileOperator.fileToMap(file);
+		maps = new Bibkey().editBibkeys(maps);
+
+		final String output = fileOperator.mapToFile(maps);
+
+		ContentDisposition contentDisposition = ContentDisposition.type("attachment").fileName("file.bib").creationDate(new Date()).build();
+
+		return Response.ok(new StreamingOutput() {
+			public void write(OutputStream outputStream) throws IOException, WebApplicationException {
+				outputStream.write(output.getBytes());
+			}
+		}).header("Content-Disposition", contentDisposition).build();
+	}
+
+	@POST
+	@Path("/diff")
+	@Consumes(MediaType.MULTIPART_FORM_DATA)
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response diff(@FormDataParam("file1") InputStream uploadedInputStream1,
+			@FormDataParam("file1") FormDataContentDisposition fileDetail1,
+			@FormDataParam("file2") InputStream uploadedInputStream2,
+			@FormDataParam("file2") FormDataContentDisposition fileDetail2) throws IOException {
+
+		String file1 = new Formatter().formatFile(IOUtils.toString(uploadedInputStream1, Charset.defaultCharset()));
+		String file2 = new Formatter().formatFile(IOUtils.toString(uploadedInputStream2, Charset.defaultCharset()));
+
+		FileOperator fileOperator = new FileOperator();
+		List<Map<String, String>> diff = fileOperator.getDiffBetweenFiles(fileOperator.fileToMap(file1), fileOperator.fileToMap(file2));
+
+		final String file = fileOperator.mapToFile(diff);
+
+		ContentDisposition contentDisposition = ContentDisposition.type("attachment").fileName("file.bib").creationDate(new Date()).build();
+
+		return Response.ok(new StreamingOutput() {
+			public void write(OutputStream outputStream) throws IOException, WebApplicationException {
+				outputStream.write(file.getBytes());
 			}
 		}).header("Content-Disposition", contentDisposition).build();
 	}

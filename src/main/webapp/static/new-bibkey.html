@@ -63,8 +63,8 @@ crossorigin="anonymous"></script>
             
             <div class="container">
                 <h1 class="title">Generate bibkey</h1>
-            
-                <form action="">
+
+                <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/generateKey">
 
                     <label for='selecao-arquivo'>Choose file</label>
                     <input id='selecao-arquivo' name='file' type='file'>

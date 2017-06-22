@@ -63,18 +63,18 @@ crossorigin="anonymous"></script>
             
             <div class="container">
                 <h1 class="title">See .bib differences</h1>
-                
-                <form action="">
+
+                <form id="upload" enctype="multipart/form-data" method="post" action="http://localhost:8080/s/bib/diff">
                     <div class="join">
                         <div class="row">
                             <div class="col-md-6">
-                                <label for='selecao-arquivo'>Choose file 1</label>
-                                <input id='selecao-arquivo' type='file'>
+                                <label for='selecao-arquivo1'>Choose file 1</label>
+                                <input id='selecao-arquivo1' name='file1' type='file'>
                                 <span class="file-name"></span>
                             </div>
                             <div class="col-md-6">                            
-                                <label for='selecao-arquivo'>Choose file 2</label>
-                                <input id='selecao-arquivo' type='file'>
+                                <label for='selecao-arquivo2'>Choose file 2</label>
+                                <input id='selecao-arquivo2' name='file1' type='file'>
                                 <span class="file-name"></span>
                             </div>
                         </div>
