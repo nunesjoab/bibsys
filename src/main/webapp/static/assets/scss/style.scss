@@ -106,13 +106,23 @@
 
 .btn-action {
 	font-size: 20px;
-	width: 140px;
 	height: 60px;
+	width: 140px;
+
+	&.generate-bibkey {
+		display: block;
+		margin: 10px 40px; 
+		width: 160px;
+	}
 }
+
+/*------------------------------------------------
+					JOIN
+-------------------------------------------------*/
 
 .join {
 
-	/* Esconde o input */
+	// Esconde o input 
 	input[type='file'] {
 		margin-left: 35px;
 		margin-bottom: 40px;
@@ -132,9 +142,12 @@
 		margin: 25px 35px;
 
 		.fa {
-			margin-left: 5px;
-			transform: rotateX(180deg);
 			font-size: 18px;
+			margin-left: 5px;
+
+			&.join-icon {
+				transform: rotateX(180deg);
+			}
 		}
 	}
 } //.join
@@ -143,9 +156,9 @@
 
 	.bkg-difference {
 		background-color: $grey-light;
-		padding-bottom: 10px;
 		margin-bottom: 20px;
-		
+		padding-bottom: 10px;
+
 		.bib-field {
 			font-size: 20px;
 		}
@@ -170,5 +183,7 @@
 		margin: 25px 15px;
 	}
 } //.new
+
+
 
 
