@@ -14,6 +14,10 @@ public class Bibkey {
      * @return array de Strings com cada palavra do nome
      */
     public String[] splitAuthorName(String authorName) {
+        if (authorName.contains(",")) {
+            return authorName.replaceAll(" ", "").split(",");
+        }
+
         return authorName.replaceAll("[,\\.]", "").split(" ");
     }
 

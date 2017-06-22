@@ -8,12 +8,12 @@ import java.util.Map;
 
 public class BibkeyTest {
 
-    private static final String AUTHOR_ONE_NAME = "Affonso, F. J.";
+    private static final String AUTHOR_ONE_NAME = "von Ammon, F. J.";
     private static final String AUTHORS_TWO_NAMES = "Affonso, F. J. and Leite, G.";
     private static final String AUTHORS_THREE_NAMES = "Affonso, F. J. and Leite, G. and Nakagawa, E. Y.";
 
     private static final String YEAR = "2017";
-    private static final String GENERATED_BIBKEY_ONE_NAME = "affonso:2017";
+    private static final String GENERATED_BIBKEY_ONE_NAME = "vonammon:2017";
     private static final String GENERATED_BIBKEY_TWO_NAMES = "affonso.leite:2017";
     private static final String GENERATED_BIBKEY_THREE_NAMES = "affonso.etal:2017";
 
@@ -30,8 +30,8 @@ public class BibkeyTest {
         Bibkey bibkey = new Bibkey();
 
         String[] s = bibkey.splitAuthorName(AUTHOR_ONE_NAME);
-        assertEquals(3, s.length);
-        assertEquals("Affonso", s[0]);
+        assertEquals(2, s.length);
+        assertEquals("vonAmmon", s[0]);
     }
 
     @Test

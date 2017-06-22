@@ -68,10 +68,15 @@ public class FileOperator {
                     map.put("bibkey", bibkey);
                 } else {
 
-                    String[] tags = line.split("=");
+                    String[] tags = line.split("=", 2);
                     String key = tags[0].trim();
                     String value = tags[1].trim().replaceAll("[\"{}]", "");
                     value = value.substring(0, value.length() - 1);
+
+                    if (map.containsKey(key)) {
+                        String oldValue = map.get(key);
+                        value = oldValue + ";" + value;
+                    }
 
                     map.put(key, value);
                 }
