@@ -9,7 +9,7 @@ public class FormatterTest {
 	private static final String HEADER_LINE = "@ARTICLE{Carnielli:1999,";
 	private static final String HEADER_LINE_PARSED = "@ARTICLE{Carnielli:1999,";
 
-	private static final String TAG_LINE = "  Author = {W.A. Carnielli and =J. Mar=cos},";
+	private static final String TAG_LINE = "  Author = {W.A. Carnielli and J. Marcos},";
 	private static final String TAG_LINE_PARSED = "  Author        = {W.A. Carnielli and J. Marcos},";
 
 	private static final String FILE = "@ARTICLE{Carnielli:1999,\nauthor = {W.A. Carnielli and J. Marcos},\n}";
